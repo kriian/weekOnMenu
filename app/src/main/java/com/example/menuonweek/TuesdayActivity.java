@@ -3,7 +3,6 @@ package com.example.menuonweek;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -14,30 +13,24 @@ public class TuesdayActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view);
 
-        menu();
+        RecyclerViewActivity recyclerViewActivity = new RecyclerViewActivity();
 
+        recyclerViewActivity.menu();
     }
 
-    private void menu() {
-        recyclerView = findViewById(R.id.recycleView);
-        recyclerView.setHasFixedSize(true);
-        adapter = new RecycleViewAdapter(arrayList(), this);
-        layoutManager = new LinearLayoutManager(this);
 
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(layoutManager);
-    }
 
     public ArrayList<RecyclerViewItem> arrayList() {
         ArrayList<RecyclerViewItem> recyclerViewItems = new ArrayList<>();
-//        recyclerViewItems.add(new RecyclerViewItem(R.drawable.mannaja_kascha,
-//                "Манная каша с изюмом",
-//                "Ну как можно умудриться испортить манную кашу!? Проще рецепта, наверно, даже не придумаешь."));
+        recyclerViewItems.add(new RecyclerViewItem(R.drawable.mannaja_kascha,
+                Utils.TITLE_TEXT_1,
+                Utils.DESCRIPTION_TEXT_1, Utils.RECIPE_TEXT_1));
 //        recyclerViewItems.add(new RecyclerViewItem(R.drawable.sup_goroh,
 //                "Гороховый суп с гренками",
 //                "Помню, как мама в детстве делала этот суп. Пока он докипал в кастрюльке, она мешала деревянной " +
