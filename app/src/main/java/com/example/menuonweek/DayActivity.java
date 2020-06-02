@@ -7,8 +7,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.menuonweek.food.GoulashSoup;
-import com.example.menuonweek.food.PotatoZrazyWithMushrooms;
-import com.example.menuonweek.food.RatatouilleWithRice;
 import com.example.menuonweek.food.RecipeInterface;
 import com.example.menuonweek.food.SemolinaPorridge;
 
@@ -23,10 +21,10 @@ public class DayActivity extends AppCompatActivity {
 
     public HashMap<String, ArrayList<RecipeInterface>> mealtime() {
         HashMap<String, ArrayList<RecipeInterface>> mealtime = new HashMap<String, ArrayList<RecipeInterface>>();
-        mealtime.put("breakfast", (ArrayList<RecipeInterface>) getMenu().get(0));
-        mealtime.put("lunch", (ArrayList<RecipeInterface>) getMenu().get(1));
-        mealtime.put("afternoon snack", (ArrayList<RecipeInterface>) getMenu().get(2));
-        mealtime.put("dinner", (ArrayList<RecipeInterface>) getMenu().get(3));
+        mealtime.put("breakfast", getBreakfast());
+        mealtime.put("lunch", getLunch());
+        mealtime.put("afternoon snack", getAfternoonSnack());
+        mealtime.put("dinner", getDinner());
 
      return mealtime;
     }
@@ -51,15 +49,30 @@ public class DayActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
     }
 
-    public  ArrayList<RecipeInterface> getMenu() {
-        ArrayList<RecipeInterface> arrayList = new ArrayList<>();
-        arrayList.add(new SemolinaPorridge());
-        arrayList.add(new GoulashSoup());
-        arrayList.add(new RatatouilleWithRice());
-        arrayList.add(new PotatoZrazyWithMushrooms());
+    private ArrayList<RecipeInterface> getBreakfast() {
+        ArrayList<RecipeInterface> breakfast = new ArrayList<>();
+        breakfast.add(new SemolinaPorridge());
 //        recyclerViewItems.add(new RecyclerViewItem(R.drawable.rukola_salat,
 //                "Салат с рукколой и редисом",
 //                "Полезное блюдо к ужину."));
-        return arrayList;
+        return breakfast;
+    }
+
+    private ArrayList<RecipeInterface> getLunch() {
+        ArrayList<RecipeInterface> lunch = new ArrayList<>();
+        lunch.add(new GoulashSoup());
+        return lunch;
+    }
+
+    private ArrayList<RecipeInterface> getAfternoonSnack() {
+        ArrayList<RecipeInterface> afternoonSnack = new ArrayList<>();
+        afternoonSnack.add(new GoulashSoup());
+        return afternoonSnack;
+    }
+
+    private ArrayList<RecipeInterface> getDinner() {
+        ArrayList<RecipeInterface> dinner = new ArrayList<>();
+        dinner.add(new GoulashSoup());
+        return dinner;
     }
 }
