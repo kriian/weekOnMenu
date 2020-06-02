@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.RecycleViewViewHolder> {
 
-    private ArrayList<RecipeInterface> arrayList;
+    private ArrayList<RecipeInterface> menu;
     Context context;
 
     public class RecycleViewViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -38,7 +38,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         @Override
         public void onClick(View v) {
             int position = getAdapterPosition();
-            RecipeInterface recipeInterface = arrayList.get(position);
+            RecipeInterface recipeInterface = menu.get(position);
 
             Intent intent = new Intent(context, RecipeActivity.class);
             intent.putExtra("imageResource", recipeInterface.getImageResource());
@@ -49,8 +49,8 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         }
     }
 
-    public RecycleViewAdapter(ArrayList<RecipeInterface> arrayList, Context context) {
-        this.arrayList = arrayList;
+    public RecycleViewAdapter(ArrayList<RecipeInterface> menu, Context context) {
+        this.menu = menu;
         this.context = context;
     }
 
@@ -65,7 +65,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull RecycleViewViewHolder holder, int position) {
-        RecipeInterface recipeInterface = arrayList.get(position);
+        RecipeInterface recipeInterface = menu.get(position);
 
         holder.imageView.setImageResource(recipeInterface.getImageResource());
         holder.textView1.setText(recipeInterface.getTitle());
@@ -74,6 +74,6 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
     @Override
     public int getItemCount() {
-        return arrayList.size();
+        return menu.size();
     }
 }
