@@ -11,11 +11,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.menuonweek.food.RecipeInterface;
+
 import java.util.ArrayList;
 
 public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.RecycleViewViewHolder> {
 
-    private ArrayList<RecyclerViewItem> arrayList;
+    private ArrayList<RecipeInterface> arrayList;
     Context context;
 
     public class RecycleViewViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -36,18 +38,18 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         @Override
         public void onClick(View v) {
             int position = getAdapterPosition();
-            RecyclerViewItem recyclerViewItem = arrayList.get(position);
+            RecipeInterface recipeInterface = arrayList.get(position);
 
             Intent intent = new Intent(context, RecipeActivity.class);
-            intent.putExtra("imageResource", recyclerViewItem.getImageResource());
-            intent.putExtra("title", recyclerViewItem.getText1());
-            intent.putExtra("description", recyclerViewItem.getText2());
-            intent.putExtra("recipe", recyclerViewItem.getRecipe());
+            intent.putExtra("imageResource", recipeInterface.getImageResource());
+            intent.putExtra("title", recipeInterface.getTitle());
+            intent.putExtra("description", recipeInterface.getDescription());
+            intent.putExtra("recipe", recipeInterface.getRecipe());
             context.startActivity(intent);
         }
     }
 
-    public RecycleViewAdapter(ArrayList<RecyclerViewItem> arrayList, Context context) {
+    public RecycleViewAdapter(ArrayList<RecipeInterface> arrayList, Context context) {
         this.arrayList = arrayList;
         this.context = context;
     }
@@ -63,11 +65,11 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull RecycleViewViewHolder holder, int position) {
-        RecyclerViewItem recyclerViewItem = arrayList.get(position);
+        RecipeInterface recipeInterface = arrayList.get(position);
 
-        holder.imageView.setImageResource(recyclerViewItem.getImageResource());
-        holder.textView1.setText(recyclerViewItem.getText1());
-        holder.textView2.setText(recyclerViewItem.getText2());
+        holder.imageView.setImageResource(recipeInterface.getImageResource());
+        holder.textView1.setText(recipeInterface.getTitle());
+        holder.textView2.setText(recipeInterface.getDescription());
     }
 
     @Override

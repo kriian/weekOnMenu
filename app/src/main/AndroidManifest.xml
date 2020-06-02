@@ -10,8 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".RecipeActivity"></activity>
-        <activity android:name=".TuesdayActivity" />
-        <activity android:name=".RecyclerViewActivity" />
+        <activity android:name=".DayActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -41,16 +41,8 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Toast.makeText(MainActivity.this, arrayList.get(position), Toast.LENGTH_SHORT).show();
-                switch (position) {
-                    case 0:
-                        intent = new Intent(MainActivity.this, RecyclerViewActivity.class);
-                        startActivity(intent);
-                        break;
-                    case 1:
-                        intent = new Intent(MainActivity.this, TuesdayActivity.class);
-                        startActivity(intent);
-                        break;
-                }
+                intent = new Intent(MainActivity.this, DayActivity.class);
+                startActivity(intent);
 
             }
         });
