@@ -1,6 +1,6 @@
 package com.example.menuonweek.food;
 
-public class SemolinaPorridge implements RecipeInterface {
+public class RatatouilleWithRice implements RecipeInterface {
     @Override
     public int getImageResource() {
         return 0;
