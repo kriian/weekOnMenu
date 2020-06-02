@@ -3,6 +3,7 @@ package com.example.menuonweek;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -19,18 +20,24 @@ public class TuesdayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view);
 
-        RecyclerViewActivity recyclerViewActivity = new RecyclerViewActivity();
-
-        recyclerViewActivity.menu();
+        menu();
     }
 
+    public void menu() {
+        recyclerView = findViewById(R.id.recycleView);
+        recyclerView.setHasFixedSize(true);
+        adapter = new RecycleViewAdapter(arrayList(), this);
+        layoutManager = new LinearLayoutManager(this);
 
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(layoutManager);
+    }
 
     public ArrayList<RecyclerViewItem> arrayList() {
         ArrayList<RecyclerViewItem> recyclerViewItems = new ArrayList<>();
         recyclerViewItems.add(new RecyclerViewItem(R.drawable.mannaja_kascha,
-                Utils.TITLE_TEXT_1,
-                Utils.DESCRIPTION_TEXT_1, Utils.RECIPE_TEXT_1));
+                MondayMenu.TITLE_TEXT_1,
+                MondayMenu.DESCRIPTION_TEXT_1, MondayMenu.RECIPE_TEXT_1));
 //        recyclerViewItems.add(new RecyclerViewItem(R.drawable.sup_goroh,
 //                "Гороховый суп с гренками",
 //                "Помню, как мама в детстве делала этот суп. Пока он докипал в кастрюльке, она мешала деревянной " +

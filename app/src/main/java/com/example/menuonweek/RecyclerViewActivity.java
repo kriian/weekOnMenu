@@ -36,14 +36,11 @@ public class RecyclerViewActivity extends AppCompatActivity {
     public  ArrayList<RecyclerViewItem> arrayList() {
         ArrayList<RecyclerViewItem> recyclerViewItems = new ArrayList<>();
         recyclerViewItems.add(new RecyclerViewItem(R.drawable.mannaja_kascha,
-                Utils.TITLE_TEXT_1, Utils.DESCRIPTION_TEXT_1, Utils.RECIPE_TEXT_1));
-//        recyclerViewItems.add(new RecyclerViewItem(R.drawable.sup_guljj,
-//                "Суп-гуляш",
-//                "В этом супе много мяса с большой буквы М. Оно там плавает не для бульона, " +
-//                        "а для того, чтобы составить почти половину гущи всего супа."));
-//        recyclerViewItems.add(new RecyclerViewItem(R.drawable.ratatuy_rice,
-//                "Рататуй с рисом",
-//                "Традиционное овощное блюдо прованской кухни из перца, баклажанов и кабачков, во многом похожее на венгерское лечо."));
+                MondayMenu.TITLE_TEXT_1, MondayMenu.DESCRIPTION_TEXT_1, MondayMenu.RECIPE_TEXT_1));
+        recyclerViewItems.add(new RecyclerViewItem(R.drawable.sup_guljj,
+                MondayMenu.TITLE_TEXT_2, MondayMenu.DESCRIPTION_TEXT_2, MondayMenu.RECIPE_TEXT_2));
+        recyclerViewItems.add(new RecyclerViewItem(R.drawable.ratatuy_rice,
+                MondayMenu.TITLE_TEXT_3, MondayMenu.DESCRIPTION_TEXT_3, MondayMenu.RECIPE_TEXT_3));
 //        recyclerViewItems.add(new RecyclerViewItem(R.drawable.kartofelnye_zrazy_s_gribami,
 //                "Картофельные зразы с грибами",
 //                "Чудесное блюдо к ужину, за которое ваши домашние будут искренне вам благодарны"));
