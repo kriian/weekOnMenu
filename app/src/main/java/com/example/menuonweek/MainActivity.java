@@ -15,15 +15,22 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private Intent intent;
+    ArrayList<String> arrayList;
+    ListView listView;
+
+
+    public Intent getIntents() {
+        return intent;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView listView = findViewById(R.id.listView);
+        listView = findViewById(R.id.listView);
 
-        final ArrayList<String> arrayList = new ArrayList<>();
+        arrayList = new ArrayList<>();
         arrayList.add("Понедельник");
         arrayList.add("Вторник");
         arrayList.add("Среда");
@@ -43,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, arrayList.get(position), Toast.LENGTH_SHORT).show();
                 intent = new Intent(MainActivity.this, DayActivity.class);
                 startActivity(intent);
+                intent.putExtra("key", position);
 
             }
         });
